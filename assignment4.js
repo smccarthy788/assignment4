@@ -51,23 +51,33 @@ function queryBowytz()
 }
 
 function handleSearch(searchString){
-  var tempMatch = [];
-  var lowerSearchString = searchString.toLowerCase();
-  for(term of searchTerms){
-    var lowerSearchTerm = term.toLowerCase();
-    if(lowerSearchTerm.startsWith(lowerSearchString)){
-      tempMatch.push(term);
-    }
+  if(searchString === ""){
+    matches = [];
   }
-  matches = tempMatch;
+  else{
+    var tempMatch = [];
+    var lowerSearchString = searchString.toLowerCase();
+    for(term of searchTerms){
+      var lowerSearchTerm = term.toLowerCase();
+      if(lowerSearchTerm.startsWith(lowerSearchString)){
+        tempMatch.push(term);
+      }
+    }
+    matches = tempMatch;
+  }
+
   console.log(matches);
   updateMatchesDisplay();
 }
 
 function updateMatchesDisplay(){
-  // Draw matches box
-  // Fill matches box
-  // ???
-  // Profit
+  // Clear previous search results
+  $(".results .results-list").html("");
+
+  // Draw new search results
+  for(match of matches){
+    $(".results .results-list").append("<li>" + match + "</li>");
+  }
+
 
 }
