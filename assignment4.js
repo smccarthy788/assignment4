@@ -65,8 +65,6 @@ function handleSearch(searchString){
     }
     matches = tempMatch;
   }
-
-  console.log(matches);
   updateMatchesDisplay();
 }
 
@@ -76,8 +74,6 @@ function updateMatchesDisplay(){
 
   // Draw new search results
   for(match of matches){
-    $(".results .results-list").append("<li>" + match + "</li>");
+    $(".results .results-list").append("<li><a target='_blank' href='https://www.google.com/#q=" + match + "'>" + match + "</a></li>");
   }
-
-
 }
